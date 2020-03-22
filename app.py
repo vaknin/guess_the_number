@@ -6,7 +6,9 @@ global maxNum, guesses, guess
 clear = lambda: os.system('cls' if os.name=='nt' else 'clear')
 
 # Welcome message
-print("Welcome to 'Guess The Number'!")
+clear()
+input("Welcome to 'Guess The Number'!\nYou will be asked to guess which number was randomly chosen.")
+clear()
 
 # Game Loop
 while True:
@@ -14,15 +16,17 @@ while True:
     # Retrieve the maximum number
     while True:
         try:
-            maxNum = int(input("Please enter the maximum number possible: "))
+            maxNum = int(input("Please enter the highest number possible: "))
             break
         except ValueError:
             print("not a valid integer")
 
+    clear()
+
     # Retrieve the number of guesses
     while True:
         try:
-            guesses = int(input("Please enter the number of guesses: "))
+            guesses = int(input("Please enter the number of guesses you would like to have: "))
             break
         except ValueError:
             print("not a valid integer")
@@ -67,7 +71,7 @@ while True:
     # Game over
     if guesses == 0:
         clear()
-        print(f"Game over!\nThe number was {randomNumber}, good luck next time!")
+        print(f"Game over!\nThe number was {randomNumber}, better luck next time!")
 
     # Play again?
     choice = input("Would you like to play again? (Y/N)\n")
